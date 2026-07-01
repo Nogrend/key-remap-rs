@@ -1,0 +1,14 @@
+[Unit]
+Description=key-remap-rs — macOS-style Cmd->Ctrl key remapper
+# Wait until input devices have been enumerated.
+After=systemd-udev-settle.service
+
+[Service]
+ExecStart=/usr/local/bin/key-remap-rs
+# Runs as root by default so it can read /dev/input/* and write /dev/uinput
+# without extra group/udev setup.
+Restart=on-failure
+RestartSec=2
+
+[Install]
+WantedBy=multi-user.target

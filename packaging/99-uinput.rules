@@ -1,0 +1,9 @@
+# Only needed if you run key-remap-rs as your normal user (NOT as root).
+# Grants the `input` group read/write on /dev/uinput. Reading /dev/input/event*
+# additionally requires your user to be in the `input` group:
+#     sudo usermod -aG input $USER   (then log out and back in)
+#
+# Install:
+#     sudo cp packaging/99-uinput.rules /etc/udev/rules.d/
+#     sudo udevadm control --reload-rules && sudo udevadm trigger
+KERNEL=="uinput", GROUP="input", MODE="0660", OPTIONS+="static_node=uinput"
