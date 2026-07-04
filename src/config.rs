@@ -14,8 +14,23 @@ pub const META_KEYS: [Key; 2] = [Key::KEY_LEFTMETA, Key::KEY_RIGHTMETA];
 pub const OUTPUT_MOD: Key = Key::KEY_LEFTCTRL;
 
 /// Keys that become `OUTPUT_MOD + <same key>` when pressed with a Command key held.
-/// Phase 1: copy and paste.
-pub const REMAPPED: [Key; 2] = [Key::KEY_C, Key::KEY_V];
+/// (With Shift also held, they become `Ctrl+Shift+<key>` — e.g. terminal copy.)
+pub const REMAPPED: [Key; 14] = [
+    Key::KEY_C, // copy
+    Key::KEY_V, // paste
+    Key::KEY_A, // select all
+    Key::KEY_X, // cut
+    Key::KEY_Z, // undo   (Cmd+Shift+Z -> Ctrl+Shift+Z = redo in many apps)
+    Key::KEY_T, // new tab
+    Key::KEY_F, // find
+    Key::KEY_S, // save
+    Key::KEY_W, // close tab/window
+    Key::KEY_N, // new window
+    Key::KEY_R, // reload
+    Key::KEY_P, // print
+    Key::KEY_O, // open
+    Key::KEY_Q, // quit
+];
 
 /// Emergency ungrab: all `META_KEYS` held together plus this key exits the daemon.
 pub const PANIC_KEY: Key = Key::KEY_ESC;
