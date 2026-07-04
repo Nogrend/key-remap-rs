@@ -4,8 +4,14 @@ A small background daemon that gives a **MacBook Pro running Fedora** macOS-styl
 copy/paste. It remaps the physical **Command** key (which Linux sees as Super/Meta)
 onto **Ctrl** for the shortcuts you use most:
 
-- `Cmd+C` → `Ctrl+C` (copy)
-- `Cmd+V` → `Ctrl+V` (paste)
+`Cmd+<key>` → `Ctrl+<key>` for: **C** (copy), **V** (paste), **A** (select all),
+**X** (cut), **Z** (undo), **T** (new tab), **F** (find), **S** (save), **W** (close),
+**N** (new window), **R** (reload), **P** (print), **O** (open), **Q** (quit).
+
+Holding Shift too passes through, so `Cmd+Shift+C` → `Ctrl+Shift+C` (terminal copy),
+`Cmd+Shift+Z` → `Ctrl+Shift+Z` (redo), etc.
+
+The set is a one-line list in `src/config.rs` (`REMAPPED`) — add or remove keys there.
 
 Everything else is left alone: pressing **Super** on its own still opens the GNOME
 Activities overview, `Super`+other keys still work for window management, and a plain
